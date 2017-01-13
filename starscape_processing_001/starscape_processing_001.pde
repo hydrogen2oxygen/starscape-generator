@@ -23,10 +23,15 @@ void drawStarScape() {
   drawStars(43, 500, 100,20,1,30);
   drawStars(45, 1000, 100,20,1,20);
   
-  drawStars(40, 100, 100,20,1,50);
+  drawStars(60, 100, 100,20,1,50);
   drawStars(50, 5000, 100,20,1,10);
-  drawStars(10, 20, 100,1,1,300);
-  filter(BLUR, 7);
+  
+  
+  filter(BLUR, 3);
+  drawStars(70, 5000, 100,98,1,1);
+  //drawStars(0, 20, 100,1,1,100);
+  drawStars(0, 20, 100,1,1,300);
+  filter(BLUR, 3);
   
   drawStarsLayer();
 }
@@ -42,6 +47,7 @@ void drawStarsLayer() {
   drawStars(175, 500, 100,98,1,2);
   drawStars(200, 250, 100,98,1,3);
   drawStars(225, 150, 100,98,1,4);
+  drawStars(225, 10, 100,40,1,4);
   drawStars(255, 50, 100,90,1,5);
 }
 
@@ -63,6 +69,8 @@ void drawStars(int strokeColor, int maxStars, int maxThreshold, int threshold, i
 }
 
 float getRandomSize(int max, int threshold, int defaultSize, int maxSize) {
+  
+  if (maxSize == 1) return random(maxSize);
   
   if (random(max) < threshold) {
     return defaultSize;
